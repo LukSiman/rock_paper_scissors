@@ -66,7 +66,7 @@ function playRound(playerSelection, computerSelection){
     } else {
         player = player.slice(0,1).toUpperCase() + player.slice(1);
         computer = computer.slice(0,1).toUpperCase() + computer.slice(1);
-        console.log(`You Win! ${player} beats ${computer}`);
+        console.log(`You Win! ${player} beats ${computer}.`);
         return 1;
     }
 }
