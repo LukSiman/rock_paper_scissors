@@ -48,25 +48,30 @@ function playRound(playerSelection, computerSelection){
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
 
+    const score = document.querySelector('#score');
+    const player_score = document.querySelector('#player_score');
+    const computer_score = document.querySelector('#computer_score');
+    const result = document.querySelector('#result');
+
     if(player === computer){
-        console.log("Draw!");
+        result.textContent = "Draw!";
         return 0;
     } else if(player === "rock" && computer === "paper"){
-        console.log("You Lose! Paper beats Rock.");
+        result.textContent = "You Lose! Paper beats Rock!";
         return -1;
 
     } else if(player === "scissors" && computer === "rock"){
-        console.log("You Lose! Rock beats Scissors.");
+        result.textContent = "You Lose! Rock beats Scissors!";
         return -1;
 
     } else if(player === "paper" && computer === "scissors"){
-        console.log("You Lose! Scissors beats Paper.");
+        result.textContent = "You Lose! Scissors beats Paper!";
         return -1; 
 
     } else {
         player = player.slice(0,1).toUpperCase() + player.slice(1);
         computer = computer.slice(0,1).toUpperCase() + computer.slice(1);
-        console.log(`You Win! ${player} beats ${computer}.`);
+        result.textContent = `You Win! ${player} beats ${computer}!`;
         return 1;
     }
 }
@@ -77,3 +82,5 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.onclick = () => playRound(button.id ,computerPlay());
 });
+
+
