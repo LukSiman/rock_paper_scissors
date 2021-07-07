@@ -29,11 +29,11 @@ function validateInput(){
 
 function game(){
     let score = 0;
-    for(i = 1; i <= 5; ++i){
+   // for(i = 1; i <= 5; ++i){
         let computerSelection = computerPlay();
         let playerSelection = validateInput();
         score += playRound(playerSelection, computerSelection);
-    }
+   // }
     if(score === 0){
         console.log("Final result is a draw!");
     } else if(score < 0){
