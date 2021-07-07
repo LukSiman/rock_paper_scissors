@@ -70,3 +70,10 @@ function playRound(playerSelection, computerSelection){
         return 1;
     }
 }
+
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.onclick = () => playRound(button.id ,computerPlay());
+});
