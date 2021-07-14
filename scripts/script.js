@@ -80,14 +80,22 @@ const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     const game_score = document.querySelector('#score');
-    const player_score = document.querySelector('#player_score');
-    const computer_score = document.querySelector('#computer_score');
     const final_result = document.createElement('p');
+
+    const player_score = document.querySelector('#player_score');
+    const player_result = document.createElement('p');
+
+    const computer_score = document.querySelector('#computer_score');
+    const computer_result = document.createElement('p');
 
     button.addEventListener('click', () => {
         playRound(button.id, computerPlay());
-        console.log(computerScore);
-        console.log(playerScore);        
+
+        player_result.textContent = romanNumberConverter(playerScore);
+        player_score.appendChild(player_result);
+
+        computer_result.textContent = romanNumberConverter(computerScore);
+        computer_score.appendChild(computer_result);      
 
         if(round_over){
             game_score.removeChild(final_result);
@@ -110,4 +118,20 @@ buttons.forEach((button) => {
     }); 
 });
 
+function romanNumberConverter(arabicNumber){
+    let roman = "";
+    const romanNumList = {V:5, IV:4, I:1};
+    let a;
 
+    for(let key in romanNumList){
+        a = Math.floor(arabicNumber / romanNumList[key]);
+        if(a >= 0){
+            for(let i = 0; i < a; i++){
+            roman += key;
+            }
+        }
+        arabicNumber = arabicNumber % romanNumList[key];
+      }
+
+    return roman;
+}
