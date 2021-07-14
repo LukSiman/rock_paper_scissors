@@ -78,20 +78,21 @@ let round_over = 0;
 
 const buttons = document.querySelectorAll('button');
 
+const game_score = document.querySelector('#score');
+const final_result = document.createElement('p');
+
+const player_score = document.querySelector('#player_score');
+const player_result = document.createElement('p');
+
+const computer_score = document.querySelector('#computer_score');
+const computer_result = document.createElement('p');
+
+
 buttons.forEach((button) => {
-    const game_score = document.querySelector('#score');
-    const final_result = document.createElement('p');
-
-    const player_score = document.querySelector('#player_score');
-    const player_result = document.createElement('p');
-
-    const computer_score = document.querySelector('#computer_score');
-    const computer_result = document.createElement('p');
-
     button.addEventListener('click', () => {
         playRound(button.id, computerPlay());
 
-        player_result.textContent = romanNumberConverter(playerScore);
+        player_result.textContent = romanNumberConverter(playerScore);        
         player_score.appendChild(player_result);
 
         computer_result.textContent = romanNumberConverter(computerScore);
@@ -117,6 +118,7 @@ buttons.forEach((button) => {
         }      
     }); 
 });
+
 
 function romanNumberConverter(arabicNumber){
     let roman = "";
