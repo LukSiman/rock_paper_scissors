@@ -52,60 +52,61 @@ function playRound(playerSelection, computerSelection){
 
     if(player === computer){
         result.textContent = "Draw!";
-        return 0;
     } else if(player === "rock" && computer === "paper"){
         result.textContent = "You Lose! Paper beats Rock!";
-        return -1;
+        computerScore++;
 
     } else if(player === "scissors" && computer === "rock"){
         result.textContent = "You Lose! Rock beats Scissors!";
-        return -1;
+        computerScore++;
 
     } else if(player === "paper" && computer === "scissors"){
         result.textContent = "You Lose! Scissors beats Paper!";
-        return -1; 
+        computerScore++;
 
     } else {
         player = player.slice(0,1).toUpperCase() + player.slice(1);
         computer = computer.slice(0,1).toUpperCase() + computer.slice(1);
         result.textContent = `You Win! ${player} beats ${computer}!`;
-        return 1;
+        playerScore++;
     }
 }
 
-let score = 0;
-let round = 0;
+let computerScore = 0;
+let playerScore = 0;
+let round_over = 0;
 
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
-  //button.onclick = () => playRound(button.id, computerPlay());
-
     const game_score = document.querySelector('#score');
     const player_score = document.querySelector('#player_score');
     const computer_score = document.querySelector('#computer_score');
     const final_result = document.createElement('p');
 
     button.addEventListener('click', () => {
-        score += playRound(button.id, computerPlay());
-        round++;
-        console.log(round);
-        if(round == 5){
-            if(score === 0){
-                final_result.textContent = "Final result is a draw!";
-                game_score.appendChild(final_result);
-                round = 0;
-            } else if(score < 0){
-                final_result.textContent = "You lost, computer wins!";
-                game_score.appendChild(final_result);
-                round = 0;
-            } else {
-                final_result.textContent = "You won, computer lost!";
-                game_score.appendChild(final_result);
-                round = 0;
-            }
+        playRound(button.id, computerPlay());
+        console.log(computerScore);
+        console.log(playerScore);        
+
+        if(round_over){
+            game_score.removeChild(final_result);
+            round_over = 0;
         }
-        
+
+        if(computerScore === 5){
+            final_result.textContent = "You lost, computer wins!";
+            game_score.appendChild(final_result);
+            computerScore = 0;
+            playerScore = 0;
+            round_over = 1;
+        } else if(playerScore === 5){
+            final_result.textContent = "You won, computer lost!";
+            game_score.appendChild(final_result);
+            computerScore = 0;
+            playerScore = 0;
+            round_over = 1;
+        }      
     }); 
 });
 
