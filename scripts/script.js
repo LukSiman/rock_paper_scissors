@@ -80,6 +80,7 @@ const buttons = document.querySelectorAll('button');
 
 const game_score = document.querySelector('#score');
 const final_result = document.createElement('p');
+final_result.setAttribute('style', 'font-weight: bold; font-size: 30px');
 
 const player_score = document.querySelector('#player_score');
 const player_result = document.createElement('p');
@@ -115,7 +116,7 @@ buttons.forEach((button) => {
             computerScore = 0;
             playerScore = 0;
             round_over = 1;
-        }      
+        }    
     }); 
 });
 
