@@ -1,9 +1,10 @@
 function computerPlay() {
     let result;
+    
     let random = Math.floor(Math.random() * 3);
     switch (random) {
         case 0:
-            return "Rock";
+            return "Rock";            
             break;
         case 1:
             return "Paper";
@@ -14,61 +15,52 @@ function computerPlay() {
     }
 }
 
-/*function validateInput(){
-    while(true){
-        let playerInput = prompt("Please input your play (Rock, paper or scissors)");
-        playerInput = playerInput.toLowerCase();
-       
-        if(playerInput !== "rock" && playerInput !== "paper" && playerInput !== "scissors"){
-            alert("Invalid input, try again!");
-        } else {
-            return playerInput;
-        }
-    }
-}*/
-
-function game(button) {
-    let score = 0;
-    for (i = 1; i <= 5; ++i) {
-        let computerSelection = computerPlay();
-        let playerSelection = button.id;
-        score += playRound(playerSelection, computerSelection);
-    }
-    if (score === 0) {
-        console.log("Final result is a draw!");
-    } else if (score < 0) {
-        console.log("You lost, computer wins!");
-    } else {
-        console.log("You won, computer lost!");
-    }
-
-}
+const rock_button = document.getElementById('rock');
+const paper_button = document.getElementById('paper');
+const scissors_button = document.getElementById('scissors');
 
 function playRound(playerSelection, computerSelection) {
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
 
+    rock_button.removeAttribute('class');
+    paper_button.removeAttribute('class');
+    scissors_button.removeAttribute('class');
+
+    const player_button = document.getElementById(player);
+    const computer_button = document.getElementById(computer);
+
     const result = document.querySelector('#result');
 
     if (player === computer) {
         result.textContent = "Draw!";
+        player_button.setAttribute('class', 'draw');
+        computer_button.setAttribute('class', 'draw');
     } else if (player === "rock" && computer === "paper") {
         result.textContent = "You Lose! Paper beats Rock!";
         computerScore++;
+        player_button.setAttribute('class', 'loser');
+        computer_button.setAttribute('class', 'winner');
 
     } else if (player === "scissors" && computer === "rock") {
         result.textContent = "You Lose! Rock beats Scissors!";
         computerScore++;
+        player_button.setAttribute('class', 'loser');
+        computer_button.setAttribute('class', 'winner');
 
     } else if (player === "paper" && computer === "scissors") {
         result.textContent = "You Lose! Scissors beats Paper!";
         computerScore++;
+        player_button.setAttribute('class', 'loser');
+        computer_button.setAttribute('class', 'winner');
 
     } else {
         player = player.slice(0, 1).toUpperCase() + player.slice(1);
         computer = computer.slice(0, 1).toUpperCase() + computer.slice(1);
         result.textContent = `You Win! ${player} beats ${computer}!`;
         playerScore++;
+        player_button.setAttribute('class', 'winner');
+        computer_button.setAttribute('class', 'loser');
     }
 }
 
