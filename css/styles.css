@@ -1,0 +1,50 @@
+@import url("reset.css");
+
+body {
+    font-family: 'Rock Salt', sans-serif;
+    font-size: 20px;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 70%;
+    text-align: center;
+}
+
+h2{
+    padding: 40px 0px 20px 0px;  
+    font-size: 30px;  
+}
+
+h3{
+    padding: 30px 0px 20px 0px;  
+    font-size: 50px;  
+    font-weight: bold;
+    
+}
+
+p{
+    padding: 5px 0px 5px 0px;
+}
+
+footer{
+    font-family: sans-serif;
+    position: fixed;
+    bottom: 12px;
+    font-size: 12px;
+}
+
+#computer_wins, #human_wins{
+    padding-top: 2em;
+}
+
+#computer_wins{
+    font-family: 'VT323', monospace;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+#human_wins{
+    font-weight: bold;
+    font-size: 30px;
+}
