@@ -1,13 +1,24 @@
 @import url("reset.css");
 
+html {
+    box-sizing: border-box;
+}
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
     font-family: 'Rock Salt', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
+    color: white;
     margin: auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 5%;
+    margin-bottom: 5%;
     width: 70%;
     text-align: center;
+    background-image: url(../images/green-slate.jpg);
+    background-size: auto;
+
 }
 
 h2{
@@ -22,8 +33,30 @@ h3{
     grid-area: top;
 }
 
-p{
-    padding: 5px 0px 5px 0px;
+button{
+    font-size: 100px;
+    border: 6px solid white;
+    background: none;
+    padding: 15px 35px 15px 35px;
+    border-radius: 100px;
+    text-align: center;
+    color: white;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+button:active{
+    transform: scale(1);
+}
+
+button:first-of-type{
+    margin-right: 30px;
+}
+
+button:last-of-type{
+    margin-left: 30px;
 }
 
 footer{
@@ -31,6 +64,10 @@ footer{
     position: fixed;
     bottom: 12px;
     font-size: 12px;
+}
+
+footer>a{
+    color: white;
 }
 
 #computer_wins, #human_wins{
@@ -51,25 +88,29 @@ footer{
 
 #player_score{
     display: flex;
-    gap: 10px;
     align-items: center;
     justify-self: start;
+    padding-left: 3em;
     grid-area: player;
 }
 
 #computer_score{
     display: flex;
-    gap: 10px;
     align-items: center;
-    justify-self: end;
+    justify-self: start;
+    padding-left: 40px;
     grid-area: computer;
+}
+
+#player_score>p, #computer_score>p{
+    padding-left: 10px;
 }
 
 #score{
     display: grid;
     justify-items: center;
     align-items: center;
-    grid-template: auto / 1fr 0.75fr 0.25fr 0.75fr 1fr;
+    grid-template: auto / 0.5fr 1fr 0.5fr 1fr 0.5fr;
     grid-template-areas: 
     "top top top top top"
     ". player . computer ."

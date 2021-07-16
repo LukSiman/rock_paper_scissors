@@ -106,7 +106,7 @@ buttons.forEach((button) => {
 
         if (computerScore === 5) {
             final_result.setAttribute('id', 'computer_wins');
-            final_result.textContent = "BEEP BOOP, computer wins!";
+            final_result.textContent = "BEEP BOOP, robot apocalypse!";
             game_score.appendChild(final_result);
             computerScore = 0;
             playerScore = 0;
