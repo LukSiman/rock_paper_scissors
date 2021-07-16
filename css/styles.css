@@ -16,10 +16,10 @@ h2{
 }
 
 h3{
-    padding: 30px 0px 20px 0px;  
+    padding: 30px 0px 50px 0px;  
     font-size: 50px;  
     font-weight: bold;
-    
+    grid-area: top;
 }
 
 p{
@@ -34,17 +34,44 @@ footer{
 }
 
 #computer_wins, #human_wins{
-    padding-top: 2em;
+    padding-top: 60px;
+    grid-area: winner;
+}
+
+#human_wins{
+    font-family: 'Zen Tokyo Zoo', sans-serif;
+    font-size: 50px;
 }
 
 #computer_wins{
     font-family: 'VT323', monospace;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 50px;
 }
 
+#player_score{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-self: start;
+    grid-area: player;
+}
 
-#human_wins{
-    font-weight: bold;
-    font-size: 30px;
+#computer_score{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-self: end;
+    grid-area: computer;
+}
+
+#score{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template: auto / 1fr 0.75fr 0.25fr 0.75fr 1fr;
+    grid-template-areas: 
+    "top top top top top"
+    ". player . computer ."
+    "winner winner winner winner winner"
 }
