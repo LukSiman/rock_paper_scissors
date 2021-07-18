@@ -1,8 +1,13 @@
 @import url("reset.css");
 
+/**********************************************
+HTML SELECTORS
+**********************************************/
+
 html {
     box-sizing: border-box;
 }
+
   *, *:before, *:after {
     box-sizing: inherit;
 }
@@ -13,12 +18,17 @@ body {
     color: white;
     margin: auto;
     margin-top: 10%;
-    margin-bottom: 5%;
     width: 70%;
+    min-height: 100vh;
     text-align: center;
-    background-image: url(../images/green-slate.jpg);
-    background-size: auto;
+    background-image: url(../images/green-slate.png); 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+img{
+    max-width: 100%;
+    height: auto;
 }
 
 h2{
@@ -62,6 +72,7 @@ button:last-of-type{
 
 footer{
     font-family: sans-serif;
+    height: 2em;
     position: fixed;
     bottom: 12px;
     font-size: 12px;
@@ -70,6 +81,10 @@ footer{
 footer>a{
     color: white;
 }
+
+/**********************************************
+ID SELECTORS 
+**********************************************/
 
 #computer_wins, #human_wins{
     padding-top: 60px;
@@ -89,8 +104,8 @@ footer>a{
 
 #player_score{
     display: grid;
-    grid-template: 30px / 1fr 0.4fr;
-    column-gap: 20px;
+    grid-template: repeat(2, 1fr) / auto;
+    row-gap: 20px;
     align-items: center;
     justify-self: end;
     grid-area: player;
@@ -98,8 +113,8 @@ footer>a{
 
 #computer_score{
     display: grid;
-    grid-template: 30px / 1fr 0.4fr;
-    column-gap: 20px;
+    grid-template: repeat(2, 1fr) / auto;
+    row-gap: 20px;
     align-items: center;
     justify-self: start;
     grid-area: computer;
@@ -115,6 +130,10 @@ footer>a{
     ". player . computer ."
     "winner winner winner winner winner"
 }
+
+/**********************************************
+CLASS SELECTORS
+**********************************************/
 
 .far{
     height: 110px;
