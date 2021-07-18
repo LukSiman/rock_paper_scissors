@@ -35,9 +35,10 @@ h3{
 
 button{
     font-size: 100px;
-    border: 6px solid white;
+    border: 8px solid white;
     background: none;
-    padding: 15px 35px 15px 35px;
+    line-height: 0px;
+    padding: 25px;
     border-radius: 100px;
     text-align: center;
     color: white;
@@ -87,23 +88,21 @@ footer>a{
 }
 
 #player_score{
-    display: flex;
+    display: grid;
+    grid-template: 30px / 1fr 0.4fr;
+    column-gap: 20px;
     align-items: center;
-    justify-self: start;
-    padding-left: 3em;
+    justify-self: end;
     grid-area: player;
 }
 
 #computer_score{
-    display: flex;
+    display: grid;
+    grid-template: 30px / 1fr 0.4fr;
+    column-gap: 20px;
     align-items: center;
     justify-self: start;
-    padding-left: 30px;
     grid-area: computer;
-}
-
-#player_score>p, #computer_score>p{
-    padding-left: 10px;
 }
 
 #score{
@@ -117,6 +116,11 @@ footer>a{
     "winner winner winner winner winner"
 }
 
+.far{
+    height: 110px;
+    width: 110px;
+}
+
 .loser{
     color: red;
     border-color: red;
@@ -125,7 +129,6 @@ footer>a{
 .winner{
     color: green;
     border-color: green;
-    ;
 }
 
 .draw{
